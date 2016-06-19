@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+  height: 20%;
+}
+
+.input-group {
+  margin: 10px;
+}
+
+#map {
+ height: 80%;
+}
