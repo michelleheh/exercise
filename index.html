@@ -32,9 +32,12 @@
         </div>
       </div>
     </nav>
-
-    <!-- Map Area -->
-    <div id="map"></div>
+    <div id="wrapper">
+      <!-- Map Area -->
+      <div id="map"></div>
+      <!-- Loading Spinner -->
+      <div id="loader"></div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal">
@@ -49,19 +52,19 @@
 
           <div class="modal-body row">
             <div class="col-xs-6">
-              <img src="..." class="img-fluid img-rounded" alt="No image">
+              <img class="img-fluid img-rounded" alt="No image">
             </div>
             <div class="col-xs-6">
               <div class="list-group">
-
-                  <h6 class="list-group-item-heading" id="rating"></h6>
-                  <p id="rateYo"></p>
 
                   <h6 class="list-group-item-heading">Address</h6>
                   <p class="list-group-item-text" id="address"></p>
 
                   <h6 class="list-group-item-heading">Open Now</h6>
                   <p class="list-group-item-text" id="openNow"></p>
+
+                  <h6 class="list-group-item-heading" id="rating"></h6>
+                  <p id="rateYo"></p>
               </div>
             </div>
 
