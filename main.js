@@ -25,6 +25,19 @@ function initMap() {
 
 };
 
+function getLatLng(nearInput, callback) {
+  $.getJSON( {
+    url  : 'https://maps.googleapis.com/maps/api/geocode/json',
+    data : {
+      sensor  : false,
+      address : nearInput
+    },
+    success : function( data, textStatus ) {
+      callback(data.results[0].geometry.location);
+    }
+  });
+};
+
 function mapCurrent(findInput, nearInput) {
   getLatLng(nearInput, function(loc){
     const pyrmont = new google.maps.LatLng(loc.lat, loc.lng);
@@ -45,7 +58,7 @@ function mapCurrent(findInput, nearInput) {
     service = new google.maps.places.PlacesService(map);
     service.textSearch(request, callback);
   });
-}
+};
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -77,19 +90,6 @@ function createMarker(place) {
 
   google.maps.event.addListener(marker, 'click', function() {
     showModal(place);
-  });
-};
-
-function getLatLng(nearInput, callback) {
-  $.getJSON( {
-    url  : 'https://maps.googleapis.com/maps/api/geocode/json',
-    data : {
-      sensor  : false,
-      address : nearInput
-    },
-    success : function( data, textStatus ) {
-      callback(data.results[0].geometry.location);
-    }
   });
 };
 

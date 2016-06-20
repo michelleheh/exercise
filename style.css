@@ -3,7 +3,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
+/*------------------------Nav bar------------------------*/
 .navbar {
   background: url('https://media.licdn.com/media/p/6/005/06d/17f/36575f0.png');
   background-size:cover;
@@ -21,12 +21,16 @@ html, body {
 .input-group {
   margin: 10px;
 }
-
+/*------------------------Map------------------------*/
 #wrapper {
   position: relative; 
   height: 75%;
 }
 
+#map {
+  height: 100%;
+}
+/*------------------------Loader------------------------*/
 #loader { 
   background: url('http://estatic.ccmbg.com/expeertv2.com/skin/common/img/loading.gif');
   background-size:cover;
@@ -38,7 +42,7 @@ html, body {
   height: 60px;
   z-index: 99; 
 }
-
-#map {
-  height: 100%;
+/*------------------------Modal------------------------*/
+.list-group-item-heading {
+  margin-top: 10px;
 }
