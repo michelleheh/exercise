@@ -5,8 +5,17 @@ html, body {
 }
 
 .navbar {
+  background: url('https://media.licdn.com/media/p/6/005/06d/17f/36575f0.png');
+  background-size:cover;
+  background-position: center; 
   margin-bottom: 0;
-  height: 20%;
+  height: 25%;
+
+}
+
+.navbar-form{
+  display: block;
+  margin: auto;
 }
 
 .input-group {
@@ -14,5 +23,5 @@ html, body {
 }
 
 #map {
- height: 80%;
+  height: 75%;
 }

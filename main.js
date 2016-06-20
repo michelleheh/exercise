@@ -27,7 +27,6 @@ function initMap() {
 
 function mapCurrent(findInput, nearInput) {
   getLatLng(nearInput, function(loc){
-    console.log('--> loc: ', loc);
     const pyrmont = new google.maps.LatLng(loc.lat, loc.lng);
 
     map = new google.maps.Map($('#map')[0], {
@@ -52,7 +51,6 @@ function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
       let place = results[i];
-      console.log('place: ', place);
       createMarker(results[i]);
     }
   }
@@ -76,10 +74,31 @@ function createMarker(place) {
   });
 
   google.maps.event.addListener(marker, 'click', function() {
-    console.log(place);
-    infowindow.setContent(place.name);
-    infowindow.open(map, this);
+    showModal(place);
   });
+};
+
+function showModal(place) {
+  // plot title
+  $('.modal-title').text(place.name);
+  // plot photo
+  const photo = place.photos ? place.photos[0].getUrl({'maxWidth': 300, 'maxHeight': 300}) : ''
+  $('.img-fluid').attr("src", photo);
+  // plot rating
+  $("#rating").text(`Rating: ${place.rating || 'N/A'}`)
+  $("#rateYo").rateYo({
+    rating: place.rating,
+    starWidth: "15px"
+  })
+  // plot address
+  $("#address").text(place.formatted_address)
+  // plot open now
+  const bln = place.opening_hours ? 
+    place.opening_hours.open_now ? 'Yes' : 'NO' 
+    : 'N/A';
+  $("#openNow").text(bln)
+  // show modal
+  $('#myModal').modal('show');
 };
 
 function getLatLng(nearInput, callback) {
