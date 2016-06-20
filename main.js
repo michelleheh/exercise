@@ -1,9 +1,10 @@
 $( document ).ready(function() {
-  $('#submit').click(() => {
+  $('#submit').submit((event) => {
     let findInput = $('#find').val() || 'Peets';
     let nearInput = $('#near').val() || 'San Francisco, CA';
     $("#loader").css("visibility","visible");
     mapCurrent(findInput, nearInput);
+    event.preventDefault();
   });
 });
 
